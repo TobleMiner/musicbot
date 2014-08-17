@@ -1,0 +1,441 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video 
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section 
+{
+	display: block;
+}
+
+body 
+{
+	line-height: 1;
+}
+
+ol, ul 
+{
+	list-style: none;
+}
+
+blockquote, q 
+{
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after 
+{
+	content: '';
+	content: none;
+}
+
+table 
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body, .float-container { position: relative; height: 100%;  width: 100%; }
+
+a:link
+{
+	text-decoration: none;
+	border-bottom: 0px;
+}
+
+.center-wrapper
+{
+	width: 100%;
+	height: 100%;
+	display: table;
+	text-align: center;
+}
+
+div#login
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+form#login-form
+{
+	display: inline-block;
+	width: 180px;
+}
+
+.button, .button-table, .button-table-big, .button-table-danger, .button-tall
+{
+	display: block;
+	position: relative;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 21px;
+	background-color: #999;
+	color: #EEE;
+	border: 0;
+	box-shadow: 0;
+	margin: 5px 0 0 0;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+
+.button:active, .button-table:active, .button-table-big:active, .button-tall:active
+{
+	background-color: #DF321D;
+}	
+
+.button:hover, .button-table:hover, .button-table-big:hover, .button-tall:hover
+{
+	background-color: #DF5C1D;
+}
+
+.button-table, .button-table-big, .button-table-danger
+{
+	font-size: 16px;
+	width: 50px;
+	height: 24px;
+	margin: 0;
+}
+
+.button-table:focus, .button-table-big:focus
+{
+	outline: none;
+	background-color: #DF5C1D;
+}
+
+.button-table-danger:focus
+{
+	outline: none;
+	background-color: #F00;
+}
+
+.button-table-big
+{
+	display: inline-block;
+	width: 100px;
+}
+
+.button-table-danger
+{
+	display: inline-block;
+	width: 24px;
+}
+
+.button-table-danger:hover, .button-table-danger:active
+{
+	background-color: #F00;
+}
+
+.button-tall
+{
+	height: 32px;
+	width: 52px;
+	font-size: 16px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.txtinput
+{
+	position: relative;
+	display: block;
+	width: 178px;
+	font-size: 15px;
+}
+
+img#logo
+{
+	width: 500px;
+	margin-bottom: 50px;
+	display: block;
+}
+
+div#auth-wrapper
+{
+	display: inline-block;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#menue
+{
+	float: left;
+	overflow: auto;
+	height: 100%;
+	width: 300px;
+	background-color: #EEE;
+	border-color: #DF5C1D;
+	border-style: solid;
+	border-width: 0 3px 0 0;
+	text-decoration: none;
+}
+
+div.menu-entry
+{
+	display: table;
+	width: 100%;
+	height: 50px;
+	background-color: inherit;
+	color: #666;
+	cursor: pointer;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+
+div.menu-dummy
+{
+	cursor: default;
+}
+
+span.menu-entry
+{
+	cursor: inherit;
+	background-color: inherit;
+	color: inherit;
+	display: table-cell;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 21px;
+	text-align: center;
+}
+
+.menu-entry:hover
+{
+	color: #FFF;
+	background-color: #DF5C1D;
+}
+
+span.menu-selected, div.menu-selected
+{
+	color: #FFF;
+	background-color: #DF5C1D;
+}
+
+div.float-container
+{
+	overflow: hidden;
+	display: block;
+}
+
+.hidden
+{
+	display: none;
+}
+
+.content
+{
+	overflow: hidden;
+	text-align: center;
+}
+
+.headline
+{
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 32px;
+	padding: 8px;
+	padding-bottom: 7px;
+	color: #666;
+	background-color: #EEE;
+	border-bottom: 3px solid #DF5C1D;
+}
+
+div#user-wrapper
+{
+	width: 100%;
+}
+
+.table-id
+{
+	width: 100%;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 24px;
+	color: #666;
+	text-align: left;
+	padding: 13px 7px 13px 7px;
+}
+
+table#users
+{
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 14px;
+	width: 100%;
+}
+
+table#users>tbody>tr
+{
+	text-align: center;
+	padding: 3px 0px;
+	height: 50px;
+}
+
+table#users>tbody>tr>th
+{
+	vertical-align: middle;
+	padding: 0 20px 0 8px;
+	font-size: 18px;
+	font-style: bold;
+}
+
+table#users>tbody>tr>td
+{
+	vertical-align: middle;
+}
+
+td.cell-user
+{
+	font-size: 16px;
+}
+
+.table-input
+{
+	height: 24px;
+	width: 200px;
+	border: none;
+}
+
+.table-input:focus
+{
+	outline: none;
+}
+
+.float-left
+{
+	float: left;
+	overflow: auto;
+}
+
+.table-pass-wrapper
+{	
+	margin: 13px 0px 13px 0px;
+	height: 24px;
+	display: block;
+}
+
+span.table-content
+{
+	margin: 17px 0px 17px 0px;
+	font-size: 16px;
+}
+
+div.slider
+{
+	cursor: pointer;
+	display: block;
+	text-align: left;
+	height: 16px;
+	margin: 17px 17px 17px 17px;
+	background-color: #CCC;
+}
+
+div.slider-content
+{
+	display: inline-block;
+	height: 100%;
+}
+
+div#player-buttons
+{
+	margin: 9px 9px 9px 9px;
+}
+
+div#player-time-slider
+{
+	overflow: hidden;
+}
+
+.bubble 
+{
+	position: absolute;
+	background-color:#eee;
+	margin: 0;
+	padding:10px;
+	text-align:center;
+	width:180px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+	box-shadow: 0px 0 3px rgba(0,0,0,0.25); 
+}
+
+.bubble:after 
+{
+	position: absolute;
+	display: block;
+	content: "";  
+	border-color: #eee transparent transparent transparent;
+	border-style: solid;
+	border-width: 10px;
+	height:0;
+	width:0;
+	position:absolute;
+	bottom:-19px;
+	left:1em;
+}
+
+.orange
+{
+	color: #FFF;
+	background-color: #DF5C1D;
+}
+
+.grey
+{
+	color: #666;
+	background-color: #EEE;	
+}
+
+.element
+{
+	display: inline-block;
+	height: 50px;
+	width: 100%;
+}
+
+.element-input-wrapper
+{
+	text-align: left;
+	display: block;
+	margin: 13px 7px 13px 7px;
+	height: 24px;
+}
+
+.no-select
+{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
