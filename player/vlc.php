@@ -173,7 +173,6 @@ EOT;
 			}
 			catch(Exception $e)
 			{
-				throw $e;
 				throw new Exception("Login failed.");
 			}
 			return TRUE;
