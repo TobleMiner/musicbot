@@ -1,3 +1,4 @@
 # Created by .gitignore support plugin
 .sass-cache/
+bourbon/
 .idea/
