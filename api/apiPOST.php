@@ -3,15 +3,19 @@
 
 	class BotApiPOST extends BotApi
 	{
+
+		/**
+		 * @return void
+		 */
 		public static function call()
 		{
 			session_start();
 			$res = new stdClass();
 			$res->result = self::API_SUCCESS;
 			if (
-				array_key_exists("loggedin", $_SESSION) && $_SESSION[ "loggedin" ] === TRUE
+				array_key_exists("loggedin", $_SESSION) && $_SESSION["loggedin"] === TRUE
 				&& array_key_exists("userid", $_SESSION)
-				&& $_SESSION[ "userid" ] !== FALSE
+				&& $_SESSION["userid"] !== FALSE
 			)
 			{
 				if (!array_key_exists("action", $_POST))
@@ -19,8 +23,8 @@
 					$res->result = self::API_MISSING_PARAMS;
 					die();
 				}
-				$action = $_POST[ "action" ];
-				$sessionuserid = $_SESSION[ "userid" ];
+				$action = $_POST["action"];
+				$sessionuserid = $_SESSION["userid"];
 				require_once( __DIR__ . "/../util/user.php" );
 				$apiuser = new User( $sessionuserid );
 				if (array_key_exists("needsadmin", $_POST))
@@ -33,7 +37,7 @@
 							{
 								try
 								{
-									User::addUser($_POST[ "username" ], $_POST[ "password" ]);
+									User::addUser($_POST["username"], $_POST["password"]);
 								}
 								catch ( Exception $e )
 								{
@@ -56,7 +60,7 @@
 								$user = NULL;
 								try
 								{
-									$user = new User( $_POST[ "userid" ] );
+									$user = new User( $_POST["userid"] );
 								}
 								catch ( Exception $e )
 								{
@@ -74,7 +78,7 @@
 										{
 											try
 											{
-												$user->changePassword($_POST[ "password" ]);
+												$user->changePassword($_POST["password"]);
 											}
 											catch ( Exception $e )
 											{
@@ -92,7 +96,7 @@
 										{
 											try
 											{
-												if ($_POST[ "state" ] == "true")
+												if ($_POST["state"] == "true")
 												{
 													$user->grantPermission(0);
 												}
@@ -118,7 +122,7 @@
 										{
 											try
 											{
-												if ($_POST[ "state" ] == "true")
+												if ($_POST["state"] == "true")
 												{
 													$user->grantPermission(1);
 												}
@@ -169,7 +173,7 @@
 								{
 									try
 									{
-										$player->play($_POST[ "uri" ]);
+										$player->play($_POST["uri"]);
 									}
 									catch ( Exception $e )
 									{
@@ -209,7 +213,7 @@
 								{
 									try
 									{
-										$player->setVolume($_POST[ "volume" ]);
+										$player->setVolume($_POST["volume"]);
 									}
 									catch ( Exception $e )
 									{
@@ -227,7 +231,7 @@
 								{
 									try
 									{
-										$player->setAudioPos($_POST[ "pos" ]);
+										$player->setAudioPos($_POST["pos"]);
 									}
 									catch ( Exception $e )
 									{
