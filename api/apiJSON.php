@@ -11,9 +11,9 @@
 			require_once(__DIR__."/../util/command.php");
 			require_once(__DIR__."/../config/player.php");
 			$this -> player = PlayerConfig::getPlayerInstance();
-			$this -> cmdLogin = new Command("login", FALSE, FALSE, array($this, "login"), "Logs you in. Usage: login <username> <password>", 2);
-			$this -> cmdLogout = new Command("logout", TRUE, FALSE, array($this, "logout"), "Logs you out. Usage: logout");
-			$this -> cmdHelp = new Command("help", FALSE, FALSE, array($this, "help"), "Prints a command list with command usage information. Usage: help");
+			$this -> cmdLogin = new Command("login", FALSE, FALSE, array($this, "login"), 'login', 2);
+			$this -> cmdLogout = new Command("logout", TRUE, FALSE, array($this, "logout"), 'logout');
+			$this -> cmdHelp = new Command("help", FALSE, FALSE, array($this, "help"), 'help');
 		}
 
 		public function call($jsonobj)
