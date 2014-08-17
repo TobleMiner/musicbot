@@ -4,7 +4,7 @@
 		public static function show()
 		{
 			?>
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Login - tSYS Music Bot</title>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 	</body>
-</html>		<?
+</html>		<?php
 		}
 	}
 ?>
