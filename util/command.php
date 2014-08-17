@@ -6,7 +6,7 @@
 			$chars = str_split($argstr);
 			$quoted = FALSE;
 			$pos = 0;
-			$args = Array();
+			$args = array();
 			$arg = "";
 			foreach ($chars as $char)
 			{
@@ -45,16 +45,29 @@
 		}
 	}
 
+	class CmdArg
+	{
+		public function __construct($name, $descr, $opt = FALSE)
+		{
+			$this -> name = $name;
+			$this -> description = $descr;
+			$this -> optional = $opt;
+		}
+	}
+
 	class Command
 	{
-		public function __construct($cmd, $requiresLogin, $permid, $callback, $help = "", $argnum = 0)
+		public function __construct($cmd, $requiresLogin, $permid, $callback, $help)
 		{
 			$this -> cmd = $cmd;
 			$this -> requiresLogin = $requiresLogin;
 			$this -> permid = $permid;
 			$this -> callback = $callback;
 			$this -> help = $help;
-			$this -> argnum = $argnum;
+			if(func_num_args() > 5)
+				$this -> args = array_slice(func_get_args(), 5);
+			else
+				$this -> args = array();
 		}
 	}
 

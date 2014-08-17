@@ -2,6 +2,8 @@
 	require_once("util/login.php");
 	require_once("ui/interface.php");
 	require_once("ui/auth.php");
+	require_once("util/lang.php");
+	
 	$login = new AuthHandler();
 	$loggedin = false;
 	if(array_key_exists("logout", $_GET))

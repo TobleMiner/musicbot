@@ -1,0 +1,4 @@
+lang="en-US"
+login="Logs you in. Usage: login <username> <password>"
+logout="Logs you out. Usage: logout"
+help="Prints a command list with command usage information. Usage: help"

@@ -15,15 +15,30 @@
 
 		public function __construct()
 		{
+<<<<<<< HEAD
 			$this -> res = new stdClass();
 			$this -> uid = NULL;
-			require_once(__DIR__ . "/../util/command.php");
-			require_once(__DIR__ . "/../config/player.php");
+			require_once(__DIR__."/../util/command.php");
+			require_once(__DIR__."/../config/player.php");
 			$this -> player = PlayerConfig::getPlayerInstance();
-			$this -> cmdLogin = new Command("login", FALSE, FALSE, array($this, "login"), 'login',
-											new CmdArg('username', 'username'), new CmdArg('password', 'password'));
+			$this -> cmdLogin = new Command("login", FALSE, FALSE, array($this, "login"), 'login', 2);
 			$this -> cmdLogout = new Command("logout", TRUE, FALSE, array($this, "logout"), 'logout');
 			$this -> cmdHelp = new Command("help", FALSE, FALSE, array($this, "help"), 'help');
+=======
+			$this->res = new stdClass();
+			$this->uid = NULL;
+			require_once( __DIR__ . "/../util/command.php" );
+			require_once( __DIR__ . "/../config/player.php" );
+			$this->player = PlayerConfig::getPlayerInstance();
+			$this->cmdLogin = new Command( "login", FALSE, FALSE, array(
+				$this, "login"
+			), "Logs you in. Usage: login <username> <password>", 2 );
+			$this->cmdLogout =
+				new Command( "logout", TRUE, FALSE, array($this, "logout"), "Logs you out. Usage: logout" );
+			$this->cmdHelp = new Command( "help", FALSE, FALSE, array(
+				$this, "help"
+			), "Prints a command list with command usage information. Usage: help" );
+>>>>>>> a24bc80c522af2e2d63b6aaba06570b4fc526132
 		}
 
 		/**
@@ -112,7 +127,7 @@
 				$res->result = self::API_MISSING_PARAMS;
 			}
 
-			return $res
+			return json_encode($res);
 		}
 
 		/**

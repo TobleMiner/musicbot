@@ -1,0 +1,4 @@
+lang="de-DE"
+login="Meldet dich an. Syntax: login <Benutzername> <Passwort>"
+logout="Meldet dich ab. Syntax: logout"
+help="Gibt eine Liste mit allen verfügbaren Kommandos aus. Syntax: help"
