@@ -9,24 +9,24 @@
 	<head>
 		<title>Login - tSYS Music Bot</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="css/musicbot.css">
 	</head>
-	<body>
-		<div class="center-wrapper">
-			<div class="center" id="login">
-				<div id="auth-wrapper">
-					<img id="logo" src="img/logo.png">
-					<form id="login-form" method="post" action="?control">
-						<input class="hidden" type="text" name="action" value="login">
-						<input class="txtinput" type="text" name="username" placeholder="username">
-						<input class="txtinput" type="password" name="password" placeholder="password">
-						<input id="login" class="button" type="submit" value="LOGIN">
-					</form>
-				</div>
+	<body class="login">
+		<main>
+			<div>
+				<h1>tSYS Music Bot</h1>
+
+				<form action="?control" method="POST">
+					<input type="hidden" name="action" value="login">
+					<input type="text" name="username" placeholder="Username<?php // form_username ?>">
+					<input type="password" name="password" placeholder="Password<?php // form_password ?>">
+					<button type="submit">Login<?php // form_login ?></button>
+				</form>
 			</div>
-		</div>
+		</main>
 	</body>
-</html>		<?php
+</html>
+<?php
 		}
 	}
 ?>
