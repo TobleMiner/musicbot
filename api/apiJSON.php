@@ -46,6 +46,7 @@
 										}
 										catch(Exception $e)
 										{
+											$res = new CommandResult(FALSE, "Internal error.");
 											$res -> result = 1;
 										}
 									}
