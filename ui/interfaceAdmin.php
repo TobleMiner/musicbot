@@ -55,7 +55,7 @@
 											<input id="pass_<?= $user->userid; ?>" type="password"
 											       class="table-input float-left" placeholder="••••••••"
 											       oninput="passchange(event)">
-											<input id="btsavepass_<? echo $user->userid; ?>" type="button"
+											<input id="btsavepass_<?= $user->userid; ?>" type="button"
 											       class="button-table hidden" value="Save"
 											       onclick="changepasswd(event)">
 										</div>
