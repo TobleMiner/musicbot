@@ -92,7 +92,13 @@
 
 		public function getVolume()
 		{
-			// TODO: Implement getVolume() method.
+         $data = $this->getStatusArray();
+         if($data->raw !== false)
+         {
+            $data->raw = $data->raw['volume'];
+            $data->userFriendly = $data->raw ? 'Volume '.$data->raw : 'Error while getting volume';
+         }
+         return $data;
 		}
 
 		public function getTitle()
@@ -104,7 +110,8 @@
 
 		public function setVolume($vol)
 		{
-			// TODO: Implement setVolume() method.
+			$this->telnet->exec('setvol '.$vol);
+         return $this->getVolume();
 		}
 
 		public function getVolumeLimits()
@@ -114,7 +121,13 @@
 
 		public function getAudioLength()
 		{
-			// TODO: Implement getAudioLength() method.
+         $data = $this->getStatusArray();
+         if($data->raw !== false)
+         {
+            $data->raw = preg_split('$:$', $data->raw['time'])[1];
+            $data->userFriendly = $data->raw ? 'Length: '.$data->raw.'s' : 'Get length failed!';
+         }
+         return $data;
 		}
 
 		public function getAudioPos()
@@ -122,15 +135,15 @@
          $data = $this->getStatusArray();
          if($data->raw !== false)
          {
-            $data->raw = $data->raw['time'];
-            $data->userFriendly = $data->raw ? 'Get audiopos success' : 'Get audiopos failed!';
+            $data->raw = preg_split('$:$', $data->raw['time'])[0];
+            $data->userFriendly = $data->raw ? 'Actual position: '.$data->raw.'s' : 'Get position failed!';
          }
          return $data;
 		}
 
 		public function setAudioPos($pos)
 		{
-			// TODO: Implement setAudioPos() method.
+         $this->telnet->exec('seekcur '.$pos);
 		}
 	}
 
