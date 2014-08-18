@@ -1,4 +1,5 @@
 <?php
+
 	class CommandUtil
 	{
 		public static function parseArguments($argstr)
@@ -10,28 +11,34 @@
 			$arg = "";
 			foreach ($chars as $char)
 			{
-				if($char == " " && !$quoted)
+				if ($char == " " && !$quoted)
 				{
 					array_push($args, $arg);
 					$arg = "";
 				}
 				else
 				{
-					if($char == "\"")
+					if ($char == "\"")
 					{
-						if($pos > 0)
+						if ($pos > 0)
 						{
-							if($chars[$pos - 1] == "\\")
+							if ($chars[$pos - 1] == "\\")
 							{
-								if(strlen($arg) > 0)
+								if (strlen($arg) > 0)
+								{
 									$arg = substr($arg, 0, -1);
+								}
 								$arg .= $char;
 							}
 							else
+							{
 								$quoted = !$quoted;
+							}
 						}
 						else
+						{
 							$quoted = !$quoted;
+						}
 					}
 					else
 					{
@@ -57,6 +64,14 @@
 
 	class Command
 	{
+
+		/**
+		 * @param string    $cmd
+		 * @param bool      $requiresLogin
+		 * @param int|false $permid
+		 * @param array     $callback
+		 * @param string    $help
+		 */
 		public function __construct($cmd, $requiresLogin, $permid, $callback, $help)
 		{
 			$this -> cmd = $cmd;
@@ -75,9 +90,10 @@
 	{
 		public function __construct($raw, $friendly, $result = 0)
 		{
-			$this -> raw = $raw;
-			$this -> userFriendly = $friendly;
-			$this -> result = $result;
+			$this->raw = $raw;
+			$this->userFriendly = $friendly;
+			$this->result = $result;
 		}
 	}
+
 ?>

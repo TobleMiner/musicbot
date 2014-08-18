@@ -2,13 +2,13 @@
 	require_once("player.php");
 	require_once(__DIR__."/../util/telnet.php");
 
-	class VLCPlayer extends Player
+	class VLC extends Player
 	{
 		public function __construct()
 		{
+			parent::__construct();
 			require_once(__DIR__."/../config/vlc.php");
 			require_once(__DIR__."/../util/time.php");
-			require_once(__DIR__."/../util/command.php");
 			$this -> telnet = new TelnetVLC(VLConfig::$host, VLConfig::$port, "");
 			$this -> telnet -> login(VLConfig::$password);
 		}
