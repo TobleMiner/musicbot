@@ -158,19 +158,16 @@
        */
       public function exec($cmd)
 		{
-
-         if(!is_array($cmd))
-         {
-            $cmd[0] = $cmd;
-         }
-
+         $commands = is_array($cmd) ? $cmd : [$cmd];
          $ret = null;
-         foreach($cmd as $command)
+
+         foreach($commands as $command)
          {
             $ret = $this->parseResponse(parent::exec($command));
             if($ret->raw === false)
                return $ret;
          }
+         
          return $ret;
 		}
 	}
