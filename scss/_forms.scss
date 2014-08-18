@@ -1,0 +1,53 @@
+input, button
+{
+	border: 0px;
+	line-height: 2em;
+	padding: 0 .75rem;
+	outline: none;
+}
+
+input, button, a
+{
+	@include transition-property(color);
+	@include transition-duration(.25s);
+	@include transition-timing-function(ease-in-out);
+}
+
+button, input[type=button], input[type=submit], label
+{
+	&:hover
+	{
+		cursor: pointer;
+	}
+}
+
+button, input[type=button]
+{
+	background-color: rgba($action, .85);
+	box-shadow: rem(4) rem(4) 0 rgba($action, .25);
+	color: #fff;
+	letter-spacing: .1em;
+	text-shadow: 0 0 2px rgba(#fff, .5);
+	text-transform: uppercase;
+
+	@include transition-property(background-color);
+
+	&:hover
+	{
+		background-color: rgba($action, 1);
+	}
+}
+
+input[type=text], input[type=password] {
+	border: rem(2) solid transparent;
+	border-bottom-color: rgba(0,0,0,.25);
+	color: lighten($font_color, 15%);
+
+	@include transition-property(color, border-color);
+
+	&:active, &:focus
+	{
+		color: $font_color;
+		border-bottom-color: $action;
+	}
+}

@@ -17,6 +17,13 @@ body
 {
 	line-height: 1;
 	overflow-y: scroll;
+	font-family: $sans-serif;
+	color: $font_color;
+}
+
+html, body, main {
+	position: relative;
+	@include size(100%);
 }
 
 ol, ul
@@ -36,8 +43,20 @@ h1, h2, h3, h4, h5, h6
 	@include font-feature-settings("liga", "dlig", "kern");
 }
 
-input {
-	@include placeholder {
+input
+{
+	color: inherit;
+
+	@include placeholder
+	{
 		font: inherit;
+	}
+}
+
+button, input[type=button], a
+{
+	&:active
+	{
+		@include transform(translateY(1px));
 	}
 }
