@@ -39,8 +39,8 @@
 					$cmd = $this->getCommands($this->player)[strtolower(array_shift($args))];
 					if ($cmd != NULL)
 					{
-//						if ($cmd->argnum == sizeof($args))
-//						{
+						if(sizeof($args) >= $cmd -> minArgnum)
+						{
 							if ($cmd->requiresLogin)
 							{
 								require_once( __DIR__ . "/../util/login.php" );
@@ -85,7 +85,7 @@
 						}
 						else
 						{
-							$res = new CommandResult( FALSE, sprintf("Wrong number of arguments: %s", $cmd->help) );
+							$res = new CommandResult( FALSE, sprintf("Too few arguments: %s", $cmd->help) );
 							$res->result = self::API_MISSING_PARAMS;
 						}
 					}
@@ -94,12 +94,12 @@
 						$res = new CommandResult( FALSE, "Unknown command" );
 						$res->result = self::API_UNKNOWN_ACTION;
 					}
-//				}
-//				else
-//				{
-//					$res = new CommandResult( FALSE, "Too few arguments: Command not given" );
-//					$res->result = self::API_MISSING_PARAMS;
-//				}
+				}
+				else
+				{
+					$res = new CommandResult( FALSE, "Too few arguments: Command not given" );
+					$res->result = self::API_MISSING_PARAMS;
+				}
 			}
 			else
 			{
