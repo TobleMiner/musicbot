@@ -25,37 +25,37 @@
 
 		public function play($uri)
 		{
-			return $this->telnet->exec("play");
+         return $this->telnet->exec(['clear', 'add '.$uri, 'play']);
 		}
 
 		public function stop()
 		{
-         return $this->telnet->exec("stop");
+         return $this->telnet->exec('stop');
 		}
 
 		public function pause()
 		{
-         return $this->telnet->exec("pause 1");
+         return $this->telnet->exec('pause 1');
 		}
 
 		public function prev()
 		{
-         return $this->telnet->exec("previous");
+         return $this->telnet->exec('previous');
 		}
 
 		public function next()
 		{
-         return $this->telnet->exec("next");
+         return $this->telnet->exec('next');
 		}
 
 		public function isPaused()
 		{
-			return $this->telnet->exec("jpofjep"); // Yep, it's for error-handling-testing ;)
+			return $this->telnet->exec('jpofjep'); // Yep, it's for error-handling-testing ;)
 		}
 
 		public function getStatus()
 		{
-         return $this->telnet->exec("status");
+         return $this->telnet->exec('status');
 		}
 
 		public function getVolume()
@@ -65,7 +65,7 @@
 
 		public function getTitle()
 		{
-         $obj = $this->telnet->exec("currentsong");
+         $obj = $this->telnet->exec('currentsong');
          if($obj->raw == "") $obj->userFriendly = "Currently not playing :(";
          return $obj;
 		}
@@ -151,9 +151,27 @@
 			return new CommandResult( FALSE, "Fatal Error!", BotApi::API_INTERNAL_ERROR );
 		}
 
-		public function exec($cmd)
+      /**
+       * @param string|string[] $cmd
+       *
+       * @return CommandResult|string
+       */
+      public function exec($cmd)
 		{
-			return $this->parseResponse(parent::exec($cmd));
+
+         if(!is_array($cmd))
+         {
+            $cmd[0] = $cmd;
+         }
+
+         $ret = null;
+         foreach($cmd as $command)
+         {
+            $ret = $this->parseResponse(parent::exec($command));
+            if($ret->raw === false)
+               return $ret;
+         }
+         return $ret;
 		}
 	}
 
