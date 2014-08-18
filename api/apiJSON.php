@@ -1,5 +1,5 @@
 <?php
-	require_once( dirname(__FILE__) . '/BotApi.php' );
+	require_once(__DIR__ . '/BotApi.php');
 
 	class BotApiJSON extends BotApi
 	{
