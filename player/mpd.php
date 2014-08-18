@@ -50,7 +50,8 @@
 
 		public function play($uri)
 		{
-         return $this->telnet->exec(['clear', 'add '.$uri, 'play']);
+         $this->telnet->exec(['clear', 'add '.$uri, 'play']);
+         return $this->isPlaying();
 		}
 
 		public function stop()
