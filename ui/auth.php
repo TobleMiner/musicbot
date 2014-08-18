@@ -18,8 +18,10 @@
 
 				<form action="?control" method="POST">
 					<input type="hidden" name="action" value="login">
-					<input type="text" name="username" placeholder="Username<?php // form_username ?>">
-					<input type="password" name="password" placeholder="Password<?php // form_password ?>">
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" placeholder="Username<?php // form_username ?>">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" placeholder="Password<?php // form_password ?>">
 					<button type="submit">Login<?php // form_login ?></button>
 				</form>
 			</div>
