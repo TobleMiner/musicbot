@@ -50,7 +50,7 @@
 
 		public function isPaused()
 		{
-			// TODO: Implement isPaused() method.
+			return $this->telnet->exec("jpofjep"); // Yep, it's for error-handling-testing ;)
 		}
 
 		public function getStatus()
@@ -65,7 +65,9 @@
 
 		public function getTitle()
 		{
-         return $this->telnet->exec("currentsong");
+         $obj = $this->telnet->exec("currentsong");
+         if($obj->raw == "") $obj->userFriendly = "Currently not playing :(";
+         return $obj;
 		}
 
 		public function setVolume($vol)
@@ -104,6 +106,8 @@
 			{
 				$this->login(MPDConfig::$password);
 			}
+
+         $this->clearBuffer();
 		}
 
 		public function login($password)
@@ -133,7 +137,7 @@
 
 			if (preg_match('$OK$', $response))
 			{
-				$response_text = preg_replace('$/\nOK\n$', '', $response);
+				$response_text = preg_replace('$/\nOK$', '', $response);
 				return new CommandResult( $response_text, "", BotApi::API_SUCCESS );
 			}
 
