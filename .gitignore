@@ -1,4 +1,6 @@
 # Created by .gitignore support plugin
 .sass-cache/
 .idea/
-config/*.php
+config/MPDConfig.php
+config/mysql.php
+config/vlc.php
