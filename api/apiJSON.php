@@ -107,7 +107,7 @@
 				$res->result = self::API_MISSING_PARAMS;
 			}
 
-			return $res
+			return $res;
 		}
 
 		/**
