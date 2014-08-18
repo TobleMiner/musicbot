@@ -2,8 +2,7 @@ window.onload = function()
 {
 	player = new Player();
 	tb_time = new Trackbar("player-time-slider");
-	b_time.onchange 
-}
+};
 
 function toArray(obj) 
 {
@@ -17,7 +16,7 @@ Player = function() { };
 
 Player.prototype.getData = function(action, callback)
 {
-	var request = new Array();
+	var request = [];
 	request["action"] = action;
 	sendRequest(request, function(xmlhttp) 
 	{ 
@@ -99,31 +98,31 @@ Player.prototype.getAudioPos = function(callback)
 
 Player.prototype.play = function(uri, callback)
 {
-	var data = new Array();
+	var data = [];
 	data["uri"] = uri;
 	this.setData("play", data, callback);
 };
 
 Player.prototype.pause = function(callback)
 {
-	this.setData("pause", new Array(), callback);
+	this.setData("pause", [], callback);
 };
 
 Player.prototype.stop = function(callback)
 {
-	this.setData("stop", new Array(), callback);
+	this.setData("stop", [], callback);
 };
 
 Player.prototype.setVolume = function(volume, callback)
 {
-	var data = new Array();
+	var data = [];
 	data["volume"] = volume;
 	this.setData("setvolume", data, callback);
 };
 
 Player.prototype.setAudioPos = function(pos, callback)
 {
-	var data = new Array();
+	var data = [];
 	data["pos"] = pos;
 	this.setData("setaudiopos", data, callback);
 };
@@ -134,24 +133,30 @@ Trackbar = function(elem)
 		this.element = document.getElementById(elem)
 	else
 		this.element = elem;
+
 	var trackbar = this;
-	toArray(this.element.childNodes).forEach(function(elem)
+
+    toArray(this.element.childNodes).forEach(function(elem)
 	{
 		if(elem.style)
 		{
 			trackbar.bar = elem;
 		}
 	});
+
 	this.onchange = null;
 	this.stickToMouse = false;
 	this.element.onmousedown = function(event) { trackbar.onTrackbarMouseDown(event); };
 	this.element.onmouseup = function(event) { trackbar.onTrackbarMouseUp(event); };
 	this.element.onmousemove = function(event) { trackbar.onTrackbarMouseMove(event); };
+
 	var parent = this.element.parentElement;
 	var tparent;
+
 	while(tparent = parent.parentElement)
 		parent = tparent;
-	parent.onmouseup = function(event) { trackbar.onTrackbarSuperparentMouseUp(event); };
+
+    parent.onmouseup = function(event) { trackbar.onTrackbarSuperparentMouseUp(event); };
 
 };
 
@@ -186,4 +191,3 @@ Trackbar.prototype.setFillPerc = function(perc)
 	this.bar.style.width = (perc * 100).toString() + "%";
 	this.fill = perc;
 };
-

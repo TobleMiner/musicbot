@@ -110,8 +110,7 @@
 
 		public function setVolume($vol)
 		{
-			$this->telnet->exec('setvol '.$vol);
-         return $this->getVolume();
+			return $this->telnet->exec('setvol '.$vol);
 		}
 
 		public function getVolumeLimits()
@@ -143,7 +142,7 @@
 
 		public function setAudioPos($pos)
 		{
-         $this->telnet->exec('seekcur '.$pos);
+         return $this->telnet->exec('seekcur '.$pos);
 		}
 	}
 
