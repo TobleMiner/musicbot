@@ -6,11 +6,6 @@
 		/**
 		 * @var Command
 		 */
-		private $cmdLogin;
-
-		/**
-		 * @var Command
-		 */
 		private $cmdLogout;
 
 		public function __construct()
