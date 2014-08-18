@@ -106,7 +106,7 @@ EOT;
 
 		public function getVolumeLimits()
 		{
-			$limits = new VolumeLimit(0, 256);
+			$limits = new VolumeLimit(0, 512);
 			return new CommandResult($limits, sprintf("Volume limits: Upper: %s Lower: %s", $limits -> lower, $limits -> upper));
 		}
 
