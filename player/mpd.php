@@ -108,6 +108,10 @@
 			}
 
          $this->clearBuffer();
+         $this->setPromptstr('OK');
+         parent::exec('ping');
+         $this->setPromptstr('');
+         $this->clearBuffer();
 		}
 
 		public function login($password)
@@ -137,7 +141,7 @@
 
 			if (preg_match('$OK$', $response))
 			{
-				$response_text = preg_replace('$/\nOK$', '', $response);
+				$response_text = preg_replace('$\nOK$', '', $response);
 				return new CommandResult( $response_text, "", BotApi::API_SUCCESS );
 			}
 
