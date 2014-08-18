@@ -62,12 +62,12 @@
 									</td>
 									<td>
 										<input id="canAdmin_<?= $user->userid; ?>"
-										       type="checkbox" <?= $user->perms->canAdmin ?: "checked"; ?>
+										       type="checkbox" <?= !$user->perms->canAdmin ?: "checked"; ?>
 										       onchange="changeAdmin(event)"/>
 									</td>
 									<td>
 										<input id="canControl_<?= $user->userid; ?>"
-										       type="checkbox" <?= $user->perms->canControl ?: "checked"; ?>
+										       type="checkbox" <?= !$user->perms->canControl ?: "checked"; ?>
 										       onchange="changeControl(event)"/>
 									</td>
 									<td>
