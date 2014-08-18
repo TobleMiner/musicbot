@@ -25,27 +25,27 @@
 
 		public function play($uri)
 		{
-			// TODO: Implement play() method.
+			return $this->telnet->exec("play");
 		}
 
 		public function stop()
 		{
-			// TODO: Implement stop() method.
+         return $this->telnet->exec("stop");
 		}
 
 		public function pause()
 		{
-			// TODO: Implement pause() method.
+         return $this->telnet->exec("pause 1");
 		}
 
 		public function prev()
 		{
-			// TODO: Implement prev() method.
+         return $this->telnet->exec("previous");
 		}
 
 		public function next()
 		{
-			// TODO: Implement next() method.
+         return $this->telnet->exec("next");
 		}
 
 		public function isPaused()
@@ -55,7 +55,7 @@
 
 		public function getStatus()
 		{
-			// TODO: Implement getStatus() method.
+         return $this->telnet->exec("status");
 		}
 
 		public function getVolume()
@@ -65,7 +65,7 @@
 
 		public function getTitle()
 		{
-			// TODO: Implement getTitle() method.
+         return $this->telnet->exec("currentsong");
 		}
 
 		public function setVolume($vol)
@@ -142,7 +142,7 @@
 
 		public function exec($cmd)
 		{
-			$this->parseResponse(parent::exec($cmd));
+			return $this->parseResponse(parent::exec($cmd));
 		}
 	}
 
