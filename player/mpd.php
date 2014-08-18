@@ -144,7 +144,7 @@
             if(preg_match('$^MPD [0-9\.]+\n$', $response))
                $response = preg_replace('$MPD [0-9\.]+\n$', '',$response);
 
-				$response_text = preg_replace('$\nOK$', '', $response);
+				$response_text = preg_replace('$[\n]*OK[\n]*$', '', $response);
 				return new CommandResult( $response_text, "", BotApi::API_SUCCESS );
 			}
 
