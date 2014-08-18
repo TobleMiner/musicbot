@@ -1,0 +1,36 @@
+.login
+{
+	main
+	{
+		display: table;
+
+		> div
+		{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+	}
+
+	h1
+	{
+		font-size: 2rem;
+		font-family: $monospace;
+		line-height: 3.5em;
+	}
+
+	form {
+		display: inline-block;
+		max-width: rem(220);
+		padding: 0 rem(10);
+	}
+
+	input {
+		margin-bottom: 1rem;
+	}
+
+	label
+	{
+		display: none;
+	}
+}
