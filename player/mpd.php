@@ -131,9 +131,9 @@
 				return new CommandResult( FALSE, 'Error ' . $error_data['error_code'] . ': ' . $error_data['message_text'], BotApi::API_INTERNAL_ERROR );
 			}
 
-			if (preg_match('OK', $response))
+			if (preg_match('$OK$', $response))
 			{
-				$response_text = preg_replace('/\nOK\n', '', $response);
+				$response_text = preg_replace('$/\nOK\n$', '', $response);
 				return new CommandResult( $response_text, "", BotApi::API_SUCCESS );
 			}
 
