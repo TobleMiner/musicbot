@@ -127,9 +127,9 @@ function changepasswd(event)
 				elem.checked = lastStatus;
 				if(res.result == 6)
 					window.location.reload();
-			} else {
+			} 
+			else
 				input.value = '';
-			}
 		}
 	});
 }
