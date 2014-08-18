@@ -162,6 +162,9 @@ Trackbar = function(elem)
 
 Trackbar.prototype.onTrackbarMouseDown = function(event)
 {
+	if(event.button != 0)
+		return;
+	
 	this.stickToMouse = true;
 	this.setFillPerc(event.offsetX / this.element.offsetWidth);
 };
