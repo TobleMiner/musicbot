@@ -24,7 +24,7 @@
 		/**
 		 * @param StdClass $jsonobj
 		 *
-		 * @return StdClass
+		 * @return CommandResult
 		 */
 		public function call($jsonobj)
 		{
