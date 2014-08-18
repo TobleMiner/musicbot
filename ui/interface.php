@@ -24,13 +24,9 @@
 				</div>
 				<?php
 					if($perms -> canControl)
-					{
 						BotInterfaceControl::showMenuEntry(array_key_exists("control", $_GET));
-					}
 					if($perms -> canAdmin)
-					{
 						BotInterfaceAdmin::showMenuEntry(array_key_exists("admin", $_GET));
-					}
 				?>
 				<a href="?logout">
 					<div class="menu-entry">
@@ -40,13 +36,9 @@
 			</div>
 				<?php
 					if(array_key_exists("control", $_GET) && $perms -> canControl)
-					{
 						BotInterfaceControl::show();
-					}
 					if(array_key_exists("admin", $_GET) && $perms -> canAdmin)
-					{
 						BotInterfaceAdmin::show();
-					}
 				?>
 		</div>
 	</body>
