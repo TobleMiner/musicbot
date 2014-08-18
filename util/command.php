@@ -83,6 +83,10 @@
 				$this -> args = array_slice(func_get_args(), 5);
 			else
 				$this -> args = array();
+			$this -> minArgnum = 0;
+			foreach ($this -> args as $arg)
+				if(!$arg -> optional)
+					$this -> minArgnum++;
 		}
 	}
 
