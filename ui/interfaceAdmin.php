@@ -1,15 +1,16 @@
 <?php
+
 	class BotInterfaceAdmin
 	{
 		public static function showMenuEntry($selected)
 		{
 			?>
-				<a href="?admin">
-					<div id="menu-admin" class="menu-entry<?php if($selected) echo " menu-selected"?>">
-						<span class="menu-entry">Admin</span>
-					</div>
-				</a>
-			<?php
+			<a href="?admin">
+				<div id="menu-admin" class="menu-entry<?php if ($selected) echo " menu-selected" ?>">
+					<span class="menu-entry">Admin</span>
+				</div>
+			</a>
+		<?php
 		}
 
 		public static function show()
@@ -32,46 +33,56 @@
 						</div>
 					</div>
 					<?php
-						require_once(__DIR__."/../util/user.php");
+						require_once( __DIR__ . "/../util/user.php" );
 						$users = User::getAllUsers();
 					?>
 					<table id="users" class="grey">
 						<tr>
-							<th> Username </th>
-							<th> Password </th>
-							<th> Is admin? </th>
-							<th> Can control music bot? </th>
-							<th> Delete </th>
+							<th> Username</th>
+							<th> Password</th>
+							<th> Is admin?</th>
+							<th> Can control music bot?</th>
+							<th> Delete</th>
 						</tr>
 						<?php
-							foreach($users as $user) 
+							foreach ($users as $user)
 							{
-						?>
-						<tr>
-							<td><span class="table-content"><?php echo $user -> username; ?></span></td>
-							<td>
-								<div class="float-container table-pass-wrapper">
-									<input id="pass_<? echo $user -> userid; ?>" type="password" class="table-input float-left" placeholder="••••••••" oninput="passchange(event)">
-									<input id="btsavepass_<? echo $user -> userid; ?>" type="button" class="button-table hidden" value="Save" onclick="changepasswd(event)">
-								</div>
-							</td>
-							<td> 
-								<input id="canAdmin_<? echo $user -> userid; ?>" type="checkbox" <?php if($user -> perms -> canAdmin) echo "checked";?> onchange="changeAdmin(event)">
-							</td>
-							<td> 
-								<input id="canControl_<? echo $user -> userid; ?>" type="checkbox" <?php if($user -> perms -> canControl) echo "checked";?> onchange="changeControl(event)">
-							</td>
-							<td>
-								<input id="delUser_<? echo $user -> userid; ?>" type="button" class="button-table-danger" value="X" onclick="deleteUser(event)">
-							</td>
-						</tr>
-						<?php
+								?>
+								<tr>
+									<td><span class="table-content"><?= $user->username; ?></span></td>
+									<td>
+										<div class="float-container table-pass-wrapper">
+											<input id="pass_<?= $user->userid; ?>" type="password"
+											       class="table-input float-left" placeholder="••••••••"
+											       oninput="passchange(event)">
+											<input id="btsavepass_<? echo $user->userid; ?>" type="button"
+											       class="button-table hidden" value="Save"
+											       onclick="changepasswd(event)">
+										</div>
+									</td>
+									<td>
+										<input id="canAdmin_<?= $user->userid; ?>"
+										       type="checkbox" <?= $user->perms->canAdmin ?: "checked"; ?>
+										       onchange="changeAdmin(event)"/>
+									</td>
+									<td>
+										<input id="canControl_<?= $user->userid; ?>"
+										       type="checkbox" <?= $user->perms->canControl ?: "checked"; ?>
+										       onchange="changeControl(event)"/>
+									</td>
+									<td>
+										<input id="delUser_<?= $user->userid; ?>" type="button"
+										       class="button-table-danger" value="X" onclick="deleteUser(event)"/>
+									</td>
+								</tr>
+							<?php
 							}
 						?>
 					</table>
 				</div>
 			</div>
-				<?php
+		<?php
 		}
 	}
+
 ?>
