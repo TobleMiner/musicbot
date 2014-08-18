@@ -124,7 +124,7 @@
 			// 2 => current_command
 			// 3 => message_text
 			$error_data = NULL;
-			preg_match('/ACK [(?P<error_code>[0-9]+)\@(?P<command_list_num>[0-9]+)] \{(?P<current_command>[a-zA-Z0-9_]*)\} (?P<message_text>.*?)\n/', $response, $error_data);
+			preg_match('/ACK \[(?P<error_code>[0-9]+)\@(?P<command_list_num>[0-9]+)\] \{(?P<current_command>[a-zA-Z0-9_]*)\} (?P<message_text>.*?)\n/', $response, $error_data);
 
 			if (sizeof($error_data) > 0)
 			{
