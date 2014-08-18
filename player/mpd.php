@@ -18,9 +18,34 @@
 			$this->telnet = new MPDTelnet( MPDConfig::$host, MPDConfig::$port, '' );
 		}
 
+      protected function getStatusArray() {
+         $data = $this->getStatus();
+
+         if($data->raw !== false)
+         {
+            $status = [];
+            $lines = preg_split('\n', $data->raw);
+            foreach($lines as $line)
+            {
+               $status_tmp = null;
+               preg_match('$[\n]*(?P<name>[a-z_]+):[ ]+(?P<value>.*)[\n]*$', trim($line), $status_tmp);
+               $status[$status_tmp['name']] = $status_tmp['value'];
+            }
+            $data->raw = $status;
+         }
+
+         return $data;
+      }
+
 		public function isPlaying()
 		{
-			// TODO: Implement isPlaying() method.
+         $data = $this->getStatusArray();
+         if($data->raw !== false)
+         {
+            $data->raw = $data->raw['state'] == 'play' ? TRUE : FALSE;
+            $data->userFriendly = $data->raw ? 'Playing' : 'Not playing';
+         }
+         return $data;
 		}
 
 		public function play($uri)
@@ -50,7 +75,13 @@
 
 		public function isPaused()
 		{
-			return $this->telnet->exec('jpofjep'); // Yep, it's for error-handling-testing ;)
+         $data = $this->getStatusArray();
+         if($data->raw !== false)
+         {
+            $data->raw = $data->raw['state'] == 'pause' ? TRUE : FALSE;
+            $data->userFriendly = $data->raw ? 'Paused' : 'Not paused';
+         }
+         return $data;
 		}
 
 		public function getStatus()
@@ -87,7 +118,13 @@
 
 		public function getAudioPos()
 		{
-			// TODO: Implement getAudioPos() method.
+         $data = $this->getStatusArray();
+         if($data->raw !== false)
+         {
+            $data->raw = $data->raw['time'];
+            $data->userFriendly = $data->raw ? 'Get audiopos success' : 'Get audiopos failed!';
+         }
+         return $data;
 		}
 
 		public function setAudioPos($pos)
