@@ -24,7 +24,7 @@
          if($data->raw !== false)
          {
             $status = [];
-            $lines = preg_split('\n', $data->raw);
+            $lines = preg_split('$\n$', $data->raw);
             foreach($lines as $line)
             {
                $status_tmp = null;
